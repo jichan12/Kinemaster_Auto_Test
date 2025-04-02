@@ -1,0 +1,13 @@
+{
+    "mail_pw": "REPLACE_WITH_YOUR_Gmail_API_TOKEN",
+    "mail_id": "jichan.ko@kinemaster.com",
+    "jira_user": "jichan.ko@kinemaster.com",
+    "jira_token": "REPLACE_WITH_YOUR_JIRA_API_TOKEN",
+    
+    "km_account": "",
+    "jira_url": "https://kinemastercorp.atlassian.net/rest/api/2/search",
+    "server_timeout": 60,
+    "mail_recv": ["jichan.ko@kinemaster.com"],
+    "server_region": ["Brazil", "Egypt", "Frankfurt am Main", "Delhi", "Seoul", "United States"],
+    "mail_count": 3
+  }
