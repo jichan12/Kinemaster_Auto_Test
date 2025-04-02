@@ -1,0 +1,13 @@
+{
+    "mail_pw": "fotd xpwy fwmz rqfs",
+    "mail_id": "jichan.ko@kinemaster.com",
+    "jira_user":"jichan.ko@kinemaster.com",
+    "jira_token":"ATATT3xFfGF0Rt6cnnPJlnS0OZ1AvdnEUhSZp2RAcM_spHS9zXguiV2iPdo-OgS64OnSZNAFQcXf8SngG6w9L8pf33lLoOiUbUY0MlWAFeoy1q3e4onhD3wQGqWgJyQljp3YKw__LqKwruXR8erGuXdq9FTEmAmqh8Ggd7XuWApjb0bn9WUfwA8=F01F1B04",
+    
+    "km_account":"",
+    "jira_url": "https://kinemastercorp.atlassian.net/rest/api/2/search",
+    "server_timeout":60,
+    "mail_recv":["jichan.ko@kinemaster.com"],
+    "server_region":["Brazil","Egypt","Frankfurt am Main","Delhi","Seoul","United States"],
+    "mail_count":3
+}

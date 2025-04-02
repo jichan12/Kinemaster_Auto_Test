@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Status</title>
+    <style>
+        /* Grid layout for task status */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .grid-item {
+            background: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: left;
+        }
+
+        .grid-item a {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .grid-item button {
+            margin-top: 10px;
+            background-color: #ff5c5c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Status</h1>
+    <div class="grid-container">
+        {% for task in tasks %}
+            <div class="grid-item">
+                <a href="{{ url_for('task_detail', task_id=task['id']) }}">Task ID: {{ task['task'].id }}</a> -
+                {% if task['task'].state == 'PENDING' %}
+                    Pending...
+                {% elif task['task'].state == 'PROGRESS' %}
+                    In Progress: {{ task['task'].info.status }}
+                {% elif task['task'].state == 'SUCCESS' %}
+                    <a href="{{ url_for('list_images_in_subfolder', subfolder=task['task'].info.result.split('/')[-1]) }}">Completed: View Images</a>
+                {% else %}
+                    {{ task['task'].state }}
+                {% endif %}
+                <form method="post" action="{{ url_for('delete_task', task_id=task['id']) }}" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+<!--&lt;!&ndash;&lt;!&ndash;task_status.html&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html lang="en">&ndash;&gt;-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta name="viewport" content="width=device-width, initial-scale=1.0">&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>Task Status</title>&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--&lt;!&ndash;    <h1>Task Status</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;    <ul>&ndash;&gt;-->
+<!--&lt;!&ndash;        {% for task in tasks %}&ndash;&gt;-->
+<!--&lt;!&ndash;            <li>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a href="{{ url_for('task_detail', task_id=task['id']) }}">Task ID: {{ task['task'].id }}</a> - &ndash;&gt;-->
+<!--&lt;!&ndash;                {% if task['task'].state == 'PENDING' %}&ndash;&gt;-->
+<!--&lt;!&ndash;                    Pending...&ndash;&gt;-->
+<!--&lt;!&ndash;                {% elif task['task'].state == 'PROGRESS' %}&ndash;&gt;-->
+<!--&lt;!&ndash;                    In Progress: {{ task['task'].info.status }}&ndash;&gt;-->
+<!--&lt;!&ndash;                {% elif task['task'].state == 'SUCCESS' %}&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a href="{{ url_for('list_images_in_subfolder', subfolder=task['task'].info.result.split('/')[-1]) }}">Completed: View Images</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                {% else %}&ndash;&gt;-->
+<!--&lt;!&ndash;                    {{ task['task'].state }}&ndash;&gt;-->
+<!--&lt;!&ndash;                {% endif %}&ndash;&gt;-->
+<!--&lt;!&ndash;                &lt;!&ndash; 삭제 버튼 추가 &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                <form method="post" action="{{ url_for('delete_task', task_id=task['id']) }}" style="display:inline;">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <button type="submit">Delete</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                </form>&ndash;&gt;-->
+<!--&lt;!&ndash;            </li>&ndash;&gt;-->
+<!--&lt;!&ndash;        {% endfor %}&ndash;&gt;-->
+<!--&lt;!&ndash;    </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Test Status</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Test Status</h1>-->
+<!--    <ul>-->
+<!--        {% for task in tasks %}-->
+<!--            <li>-->
+<!--                <a href="{{ url_for('task_detail', task_id=task['id']) }}">Task ID: {{ task['task'].id }}</a> - -->
+<!--                {% if task['task'].state == 'PENDING' %}-->
+<!--                    Pending...-->
+<!--                {% elif task['task'].state == 'PROGRESS' %}-->
+<!--                    In Progress: {{ task['task'].info.status }}-->
+<!--                {% elif task['task'].state == 'SUCCESS' %}-->
+<!--                    <a href="{{ url_for('list_images_in_subfolder', subfolder=task['task'].info.result.split('/')[-1]) }}">Completed: View Images</a>-->
+<!--                {% else %}-->
+<!--                    {{ task['task'].state }}-->
+<!--                {% endif %}-->
+<!--                &lt;!&ndash; 삭제 버튼 추가 &ndash;&gt;-->
+<!--                <form method="post" action="{{ url_for('delete_task', task_id=task['id']) }}" style="display:inline;">-->
+<!--                    <button type="submit">Delete</button>-->
+<!--                </form>-->
+<!--            </li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+<!--</body>-->
+<!--</html>-->

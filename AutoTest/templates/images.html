@@ -1,0 +1,35 @@
+<!--&lt;!&ndash;images.html&ndash;&gt;-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Image Subfolders</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Image Subfolders</h1>-->
+<!--    <ul>-->
+<!--        {% for subfolder in subfolders %}-->
+<!--            <li><a href="{{ url_for('list_images_in_subfolder', subfolder=subfolder) }}">{{ subfolder }}</a></li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+<!--    <a href="{{ url_for('task_status') }}">Go Back</a>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Subfolders</title>
+</head>
+<body>
+    <h1>Image Subfolders</h1>
+    <ul>
+        {% for subfolder in subfolders %}
+            <li><a href="{{ url_for('list_images_in_subfolder', subfolder=subfolder) }}">{{ subfolder }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Go Back</a>
+</body>
+</html>

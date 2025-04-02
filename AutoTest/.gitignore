@@ -1,0 +1,9 @@
+*.apk
+.DS_store
+/Test
+/Result
+/downloads
+/uploads
+/.idea
+/venv
+/__pycache__
